@@ -66,7 +66,7 @@ std::pair<bool,std::pair<double,double>> solveQuadratic(double a, double b, doub
 int main(){
     system("cls");
     std::pair<bool,std::pair<double,double>> solution = solveQuadratic(1,-3,2);
-    std:: cout << "Number of solutions: " << solution.first << std::endl << "First sol: " << solution.second.first << std::endl << "Second sol: " << solution.second.second <<std::endl;
+    std:: cout << "Number of solutions: " << solution.first << std::endl << "First sol: " << solution.second.first << ", " << " Second sol: " << solution.second.second <<std::endl;
     return 0;
 }
 
