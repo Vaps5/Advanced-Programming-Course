@@ -1,0 +1,28 @@
+My short answers:
+Question 1:
+By using an ordered set, I have an ordered indexing. I can access
+to the ith element, besides that I can search, insert and delete elements fastly.
+On the other hand, by using the unordered set, I cannot access to the ith element,
+although I can search, delete and erase elements faster than with the ordered set
+
+Def Hash function: A hash function is a function that
+'projects a value from a set with many (or even an infinite number of) members to a value from a set with a fixed number of (fewer) members' (Wolfram MathWorld)
+
+Example:
+Consider a function that maps each student name to an unordered set of ints that represent
+the number of chars in the name.
+std::unordered_set<int> Hash_Function(std::set<std::string> names_set){
+  std::unordered_set<int> sizes_names_set;
+  for (std::string elem : names_set){
+    sizes_names_set.insert(elem.size());
+  }
+  return sizes_names_set;
+}
+
+Question 2:
+If we do not save the names as pointers, we would be creating copies of the
+the elements, and since there can be many names, it would take too much storage.
+Therefore, it results efficient to storage as pointers to the names.
+storage as pointers.
+If the original set goes out of scope, the pointers to the elements that previously
+were in the set, would be pointing to invalid memory. It happens because the memory occupied by the set is already released.
