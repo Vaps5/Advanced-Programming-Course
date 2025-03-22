@@ -1,11 +1,7 @@
-Before submitting this file, make sure that there are no more TODO
-placeholders remaining in the file (and remove this comment too).
-
-Make a Class
-------------
-
-Q1. What’s const-correctness and why is it important?
-A1. TODO
-
-Q2. Is your class const-correct? How do you know?
-A2. TODO
+My short answers:
+Question 1:
+Const-correctness is a way for verifying that the variables or functions do not be modified
+and it ensures it not modify the object.
+Question 2:
+Yes, my class is const-correct because all getter functions are const. Moreover,
+the internal_temperature static member is const and the display function too for preventing any unexpected change.

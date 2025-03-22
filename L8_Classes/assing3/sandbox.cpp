@@ -3,7 +3,7 @@
  * Created by Fabio Ibanez with modifications by Jacob Roberts-Baca.
  */
 
- #include "class.h"
+#include "class.h"
 #include <iostream>
 #include <fstream>
 
@@ -42,7 +42,7 @@ int main() {
     myanswer << "Question 1:" << "\n";
     myanswer << "Const-correctness is a way for verifying that the variables or functions do not be modified"<< "\n";
     myanswer << "and it ensures it not modify the object."<< "\n";
-    myanswer << "Question 2:" << "\n"<< "\n";
+    myanswer << "Question 2:" << "\n";
     myanswer << "Yes, my class is const-correct because all getter functions are const. Moreover,"<< "\n";
     myanswer << "the internal_temperature static member is const and the display function too for preventing any unexpected change."<< "\n";
   }
