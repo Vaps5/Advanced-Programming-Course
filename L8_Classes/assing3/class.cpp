@@ -2,7 +2,7 @@
 #include "class.h"
 
 
-const std::string ChitinHydrolysis::internal_temperature = "25°C";
+const std::string ChitinHydrolysis::internal_temperature = "25 degrees Celsius";
 //Static const members of non-integral types (e.g., std::string) must be initialized outside the class.
 
 void ChitinHydrolysis::validateWeight(double& weight) {
@@ -23,7 +23,7 @@ void ChitinHydrolysis::set_CaOH_concentration(double a) {
     if (a > 0) {
         CaOH_concentration = a;
     } else {
-        std::cout << "CaOH_concentration is positive" << std::endl;
+        std::cout << "CaOH_concentration must be positive" << std::endl;
     }
 }
 
@@ -42,10 +42,9 @@ void ChitinHydrolysis::set_Final_weight(double a) {
 
 // Display function
 void ChitinHydrolysis::display() const {
-    std::cout << "\n" << std::endl;
     std::cout << "Chitin Hydrolysis Process" <<"\n";
     std::cout << "Concentration Type: " << concentration_type << "\n";
-    std::cout << "CaOH Concentration: " << CaOH_concentration << "\n";
+    std::cout << "CaOH Concentration: " << CaOH_concentration << "g/ml\n";
     std::cout << "Initial Weight: " << Initial_weight << "g\n";
     std::cout << "Final Weight: " << Final_weight << "g\n";
     std::cout << "\n" << std::endl;

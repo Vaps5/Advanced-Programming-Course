@@ -11,7 +11,7 @@ private:
     void validateWeight(double& weight);  
 public:
     static int const crickets_number = 5;
-    static int const water_volume = 5;
+    static int const water_volume = 15;
     static std::string const internal_temperature;
     //Static const members of non-integral types (e.g., std::string) must be initialized outside the class.
 
