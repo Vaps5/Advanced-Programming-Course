@@ -4,22 +4,22 @@
 //CONSTRUCTION TYPES
 //Default constructor
 // class Person {
-//     public:
-//         std::string name;
-//         int age;
-    
-//         // Constructor
-//         Person() {
-//             name = "Unknown";
-//             age = 0;
-//         }
-    
-//     };
-    
-//     int main() {
-//         Person p1;  // Calls the constructor automatically
-//         std::cout << p1.age << " " << p1.name <<std::endl;
+// public:
+//     std::string name;
+//     int age;
+
+//     // Constructor
+//     Person() {
+//         name = "Unknown";
+//         age = 0;
 //     }
+
+// };
+
+// int main() {
+//     Person p1;  // Calls the constructor automatically
+//     std::cout << p1.age << " " << p1.name <<std::endl;
+// }
 
 
 
@@ -351,43 +351,43 @@
 // C++ program to demonstrate the number of times
 // constructor and destructors are called
 
-#include <iostream>
-using namespace std;
-// It is static so that every class object has the same
-// value
-static int Count = 0;
-class Test {
-public:
-    // User-Defined Constructor
-    Test()
-    {
+// #include <iostream>
+// using namespace std;
+// // It is static so that every class object has the same
+// // value
+// static int Count = 0;
+// class Test {
+// public:
+//     // User-Defined Constructor
+//     Test()
+//     {
 
-        // Number of times constructor is called
-        Count++;
-        cout << "No. of Object created: " << Count << endl;
-    }
+//         // Number of times constructor is called
+//         Count++;
+//         cout << "No. of Object created: " << Count << endl;
+//     }
 
-    // User-Defined Destructor
-    ~Test()
-    {
-        // It will print count in decending order
-        cout << "No. of Object destroyed: " << Count
-             << endl;
-        Count--;
-        // Number of times destructor is called
-    }
-};
+//     // User-Defined Destructor
+//     ~Test()
+//     {
+//         // It will print count in decending order
+//         cout << "No. of Object destroyed: " << Count
+//              << endl;
+//         Count--;
+//         // Number of times destructor is called
+//     }
+// };
 
-// driver code
-int main()
-{
-    Test t, t1, t2, t3;
+// // driver code
+// int main()
+// {
+//     Test t, t1, t2, t3;
 
-    //Calling a destructor
-    t1.~Test();
+//     //Calling a destructor
+//     t1.~Test();
 
-    return 0;
-}
+//     return 0;
+// }
 
 //Note: Objects are destroyed in the reverse order of their creation. In this case, t3
 //  is the first to be destroyed, while t is the last.
