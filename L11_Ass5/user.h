@@ -3,8 +3,6 @@
  * Created by Fabio Ibanez with modifications by Jacob Roberts-Baca.
  */
 
-
-
 #include <iostream>
 #include <string>
 
@@ -19,6 +17,9 @@ public:
 
   //Operators
   friend std::ostream& operator<<(std::ostream& out, const User& usr);
+  User& operator=(const User& other);//Make the User class copy assignable
+  bool operator<(const User& rhs) const;
+  User& operator=(User&& user); //Prevent the User class from being move assigned
 
   // Representing adding a user to another user's friend list
   friend User& operator+=(User& rhs, User& shr);
@@ -26,10 +27,8 @@ public:
   //SMFs
   ~User();
   User(const User& other);//Make the User class copy constructible. 
-  User& operator=(const User& other);//Make the User class copy assignable
   User(User&& user);// Prevent the User class from being move constructed.
-  User& operator=(User&& user); //Prevent the User class from being move assigned
-
+  
 private:
   std::string _name;
   std::string* _friends; //This is a poiter to a string

@@ -8,8 +8,12 @@ User::User(const std::string& name)
   , _friends(nullptr) // For a pointer to a string
   , _size(0)
   , _capacity(0) // This is the number of friends of the user
-{
-} 
+{} 
+
+//*Destructor
+User::~User() {
+  delete[] _friends;
+}
 
 /**
  * Adds a friend to this User's list of friends.
@@ -61,29 +65,54 @@ void User::set_friend(size_t index, const std::string& name)
   _friends[index] = name;
 }
 
-/** 
- * Operator << 
- * 
- */
-std::ostream& operator<<(std::ostream& out, const User& usr){
-  out << "User(name="<< usr._name << ", friends =[" << 
-  // for (size_t i = 0; i < _size; ++i) {_friend[i]} << "])"; FOR IS OUTSIDE THE OUT
-  return out;
-}
 
 
-
-//Make the User class copy constructible. 
-User::User(const User& other) : _name(other._name), _size(other._size), _capacity(other._capacity), _friends(other._friends)
-{
-  // Do I need this member with friend since I am using private
-  // variable _size...?
-  for (size_t i = 0; i < _size; i++) {
+// Make the User class copy constructible. 
+User::User(const User& other)
+  : _name(other._name), _size(other._size), _capacity(other._capacity) {
+  _friends = new std::string[_capacity];
+  for (size_t i = 0; i < _size; ++i) {
     _friends[i] = other._friends[i];
   }
 }
 
+//Copy assignment operator
+User& User::operator=(const User& other) {
+  if (this != &other) {
+    delete[] _friends;
 
+    _name = other._name;
+    _size = other._size;
+    _capacity = other._capacity;
+
+    _friends = new std::string[_capacity];
+    for (size_t i = 0; i < _size; ++i) {
+      _friends[i] = other._friends[i];
+    }
+  }
+  return *this;
+}
+
+/** 
+ * Operator << 
+ * 
+ */
+std::ostream& operator<<(std::ostream& out, const User& usr) {
+  out << "\nUser(name=" << usr._name << ", friends=[";
+  for (size_t i = 0; i < usr._size; i++) {
+      out << usr._friends[i];
+      if (i < usr._size - 1) {
+          out << ", ";
+      }
+  }
+  out << "])\n";
+  return out;
+}
+
+
+/**
+ * Operator += 
+ */
 User& operator+=(User& rhs, User& shr) {
   rhs.add_friend(shr.get_name());
   shr.add_friend(shr.get_name());
@@ -92,10 +121,31 @@ User& operator+=(User& rhs, User& shr) {
 
 
 
+/**
+ * Operator <
+ */
+bool User::operator<(const User& rhs) const {
+  return _name < rhs._name;
+}
+
+
+
+
+
 int main(){
   User Proof("Ari");
   User Proof2("Carlos");
   Proof += Proof2;
+  Proof2.add_friend("Ame");
   std::cout << Proof;
-  std::cout << Proof;
+  std::cout << Proof2;
+
+  User alice("Alice");
+  User charlie("Charlie");
+
+  if (alice < charlie)
+  std::cout << "\nAlice is less than Charlie";
+  else
+  std::cout << "\nCharlie is less than Alice";
+  return 0;
 }
