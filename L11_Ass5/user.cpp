@@ -109,7 +109,6 @@ std::ostream& operator<<(std::ostream& out, const User& usr) {
   return out;
 }
 
-
 /**
  * Operator += 
  */
@@ -118,8 +117,6 @@ User& operator+=(User& rhs, User& shr) {
   shr.add_friend(shr.get_name());
   return rhs;
 }
-
-
 
 /**
  * Operator <

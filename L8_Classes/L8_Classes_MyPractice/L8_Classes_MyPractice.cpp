@@ -391,3 +391,60 @@
 
 //Note: Objects are destroyed in the reverse order of their creation. In this case, t3
 //  is the first to be destroyed, while t is the last.
+
+
+//CONST CORRECTNESS
+// // A sample class
+// class MyClass {
+// private:
+//     int x = 10;
+// public:
+//     int getX();
+// };
+
+
+// int MyClass::getX(){
+//     return x;
+// } 
+
+// int main() {
+//     MyClass A;
+//     std::cout<<A.getX()<<std::endl;
+
+//     const MyClass A_const; // We cannot modify A_const members
+//     std::cout<<A_const.getX()<<std::endl; // Compiler cannot be sure getX method will modify A_const
+//     // getX method is not const
+
+
+//     return 0;
+// }
+
+// // A sample class
+// class MyClass {
+//     private:
+//         int x = 10;
+//     public:
+//         int getX() const;
+//     };
+    
+    
+//     int MyClass::getX() const{
+//         return x;
+//     } 
+    
+//     int main() {
+//         MyClass A;
+//         std::cout<<A.getX()<<std::endl;
+    
+//         const MyClass A_const; // We cannot modify A_const members
+//         std::cout<<A_const.getX()<<std::endl; // Compiler cannot be sure getX method will modify A_const
+//         // getX method is const
+    
+    
+//         return 0;
+//     }
+
+
+//Returning a const reference
+// Since the reference if of type T, then we can return sometimes const and other not
+// Const overloading --> Sol: const_cast
