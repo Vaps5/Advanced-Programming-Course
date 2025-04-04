@@ -114,7 +114,7 @@ std::ostream& operator<<(std::ostream& out, const User& usr) {
  */
 User& operator+=(User& rhs, User& shr) {
   rhs.add_friend(shr.get_name());
-  shr.add_friend(shr.get_name());
+  shr.add_friend(rhs.get_name());
   return rhs;
 }
 
