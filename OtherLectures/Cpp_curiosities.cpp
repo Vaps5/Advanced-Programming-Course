@@ -164,29 +164,26 @@ using namespace std;
 
 
 
-
-
-
 //If I were in hp file
-class Point {
-    private:
-        int x;
-        int y;
-        std::string color;
+// class Point {
+//     private:
+//         int x;
+//         int y;
+//         std::string color;
     
-    public:
-        Point(int x, int y);
-        ~Point();
-        int getX();
-        int getY();
-    };
+//     public:
+//         Point(int x, int y);
+//         ~Point();
+//         int getX();
+//         int getY();
+//     };
     
-//In cpp file
+// //In cpp file
 
-Point::Point(int x, int y) : x(x), y(y){} // With member initializer, we do not use "this" keyword
+// Point::Point(int x, int y) : x(x), y(y){} // With member initializer, we do not use "this" keyword
 
 
-int main()
-{
-    return 0;
-}
+// int main()
+// {
+//     return 0;
+// }
