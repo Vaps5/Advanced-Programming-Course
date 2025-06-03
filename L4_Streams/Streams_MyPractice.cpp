@@ -25,7 +25,7 @@ int main() {
     //std::string word;
 
     //MyStream >> num >> pi >> word;  // Extract values from the stream
-`   int first;
+    int first;
     double second;
     std::string last;
 
