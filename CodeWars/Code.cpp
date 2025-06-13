@@ -443,3 +443,85 @@
 
 
 
+// #include <cstdint>
+// #include <vector>
+
+// using namespace std;
+
+// uint32_t partitions(uint32_t n) {
+//     vector<uint32_t> dp(n + 1, 0);
+//     dp[0] = 1;
+
+//     for (uint32_t k = 1; k <= n; ++k) {
+//         for (uint32_t i = k; i <= n; ++i) {
+//             dp[i] += dp[i - k];
+//         }
+//     }
+
+//     return dp[n];
+// }
+
+
+
+// #include <tuple>
+// #include <type_traits>
+
+// // Helper: Only sum numeric types except char and bool
+// template <typename T>
+// constexpr bool is_valid_numeric =
+//     std::is_arithmetic<T>::value &&
+//     !std::is_same<T, char>::value &&
+//     !std::is_same<T, bool>::value;
+
+// template <typename T>
+// double sum_element(const T& x) {
+//     if constexpr (is_valid_numeric<T>) {
+//         return static_cast<double>(x);
+//     } else {
+//         return 0.0;
+//     }
+// }
+
+// template <typename Tuple, std::size_t... Is>
+// double tuple_sum_impl(const Tuple& tpl, std::index_sequence<Is...>) {
+//     return (sum_element(std::get<Is>(tpl)) + ...); // fold expression
+// }
+
+// template <typename... Ts>
+// double tuple_sum(const std::tuple<Ts...>& tpl) {
+//     return tuple_sum_impl(tpl, std::index_sequence_for<Ts...>{});
+// }
+
+
+// #include <vector>
+// #include <set>
+// #include <cstdint>
+// #include <algorithm>
+
+// uint32_t n_linear(const std::set<uint32_t>& m_set, size_t n) {
+//     std::vector<uint32_t> m(m_set.begin(), m_set.end()); 
+//     std::vector<uint32_t> res = {1};                     
+//     std::vector<size_t> idx(m.size(), 0);                
+
+//     while (res.size() <= n) {
+//         std::vector<uint64_t> candidates;
+//         for (size_t i = 0; i < m.size(); ++i) {
+//             candidates.push_back(static_cast<uint64_t>(res[idx[i]]) * m[i] + 1);
+//         }
+
+//         uint64_t next = *std::min_element(candidates.begin(), candidates.end());
+
+//         if (next > res.back()) {
+//             res.push_back(static_cast<uint32_t>(next));
+//         }
+
+//         for (size_t i = 0; i < m.size(); ++i) {
+//             if (candidates[i] == next) {
+//                 idx[i]++;
+//             }
+//         }
+//     }
+
+//     return res[n];
+// }
+
