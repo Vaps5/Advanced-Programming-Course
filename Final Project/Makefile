@@ -1,17 +1,14 @@
-# Makefile for compiling three independent C++ programs one at a time
-
 # Compiler and flags
 CXX = g++
 CXXFLAGS = -O2 -std=c++17
 
-# Programs
-TARGETS = LeastSquares Maximum_BeamSearch Maximum_WithoutBeamSearch
+PROGRAMS = LeastSquares Maximum_BeamSearch Maximum_WithoutBeamSearch
 
-# Default target (optional)
+# When running "make"
 all:
-	@echo "Usage: make [TARGET]"
-	@echo "Available targets: $(TARGETS)"
-	@echo "Example: make LeastSquares"
+	@echo Available programs to compile: $(PROGRAMS)
+	@echo To compile, enter: make program_name.
+	@echo Then, run the program by entering its name.
 
 # Compile individual programs
 LeastSquares: LeastSquares.cpp
@@ -23,6 +20,6 @@ Maximum_BeamSearch: Maximum_BeamSearch.cpp
 Maximum_WithoutBeamSearch: Maximum_WithoutBeamSearch.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-# Clean compiled .exe files (for Windows)
+# Clean
 clean:
-	del /Q $(TARGETS:=.exe) 2> NUL
+	del /Q $(PROGRAMS:=.exe) 2> NUL
